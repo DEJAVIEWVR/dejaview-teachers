@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DejaView - Admin Portal</title>
+    <style>body { visibility: hidden; }</style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="extra.css">
+</head>
+<body>
+    <header>
+        <h1>DejaView Admin</h1>
+        <p>Teacher accounts and section management</p>
+        <button id="logoutButton" class="logout-button">Logout</button>
+    </header>
+    <nav><a href="#sections">Sections</a><a href="#teachers">Teachers</a></nav>
+    <main>
+        <section id="sections" class="student-section">
+            <h2>Sections</h2>
+            <p class="hint">Students pick from this list when they register in the VR app.</p>
+            <div class="admin-form">
+                <input type="text" id="sectionName" placeholder="e.g. BSTM-3A">
+                <button id="addSection">Add Section</button>
+            </div>
+            <div class="student-table-container"><table>
+                <thead><tr><th>Section</th><th>Actions</th></tr></thead>
+                <tbody id="sectionBody"></tbody>
+            </table></div>
+        </section>
+
+        <section id="teachers" class="student-section">
+            <h2>Teacher Accounts</h2>
+            <p class="admin-msg" id="msg"></p>
+            <form id="teacherForm" class="admin-form">
+                <input type="text" id="tName" placeholder="Full name" required>
+                <input type="text" id="tEmpId" placeholder="Employee ID" required>
+                <input type="email" id="tEmail" placeholder="Email" required>
+                <input type="password" id="tPass" placeholder="Password (min 6)" minlength="6" required>
+                <select id="tSections" multiple size="4" required></select>
+                <button type="submit">Create Teacher</button>
+            </form>
+            <p class="hint">Hold Ctrl/Cmd to select several sections.</p>
+            <div class="student-table-container"><table>
+                <thead><tr><th>Name</th><th>Employee ID</th><th>Email</th><th>Sections</th><th>Actions</th></tr></thead>
+                <tbody id="teacherBody"></tbody>
+            </table></div>
+        </section>
+    </main>
+    <script type="module" src="admin.js"></script>
+</body>
+</html>

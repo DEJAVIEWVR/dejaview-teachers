@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DejaView - Instructor Dashboard</title>
+    <style>body { visibility: hidden; }</style>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="extra.css">
+</head>
+<body>
+    <header>
+        <h1>DejaView</h1>
+        <p id="who">Loading...</p>
+        <button id="logoutButton" class="logout-button">Logout</button>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#pending">Pending <span class="badge" id="pendingCount">0</span></a>
+        <a href="#students">Student List</a>
+        <a href="#performance">Performance</a>
+        <a href="#module">Module</a>
+    </nav>
+    <main>
+        <section id="home" class="home-section">
+            <h2>Welcome, Instructor</h2>
+            <p>You can only see students and records from your assigned section(s). New students register in the VR app and appear under Pending Approvals.</p>
+        </section>
+
+        <section id="pending" class="student-section">
+            <h2>Pending Approvals</h2>
+            <p class="hint">Approve only students you recognize. Rejecting removes the registration record.</p>
+            <div class="student-table-container"><table>
+                <thead><tr><th>Student ID</th><th>Full Name</th><th>Username</th><th>Section</th><th>Actions</th></tr></thead>
+                <tbody id="pendingBody"><tr><td colspan="5">Loading...</td></tr></tbody>
+            </table></div>
+        </section>
+
+        <section id="students" class="student-section">
+            <h2>Student List</h2>
+            <div class="student-controls">
+                <input type="text" id="searchStudent" placeholder="Search Student ID, Name, Username, or Section">
+            </div>
+            <div class="student-table-container"><table>
+                <thead><tr><th>Student ID</th><th>Full Name</th><th>Username</th><th>Section</th><th>Actions</th></tr></thead>
+                <tbody id="studentTable"><tr><td colspan="5">Loading...</td></tr></tbody>
+            </table></div>
+        </section>
+
+        <section id="performance" class="student-section">
+            <h2>Performance Monitoring</h2>
+            <div class="student-controls"><select id="perfStudent"><option value="">Select a student</option></select></div>
+            <p class="perf-summary" id="perfSummary"></p>
+            <div class="student-table-container"><table>
+                <thead><tr><th>Destination</th><th>Knowledge (35)</th><th>Time (20)</th><th>Navigation (20)</th><th>Problem-solving (15)</th><th>Completion (10)</th><th>Total</th></tr></thead>
+                <tbody id="perfBody"><tr><td colspan="7">Select a student.</td></tr></tbody>
+            </table></div>
+        </section>
+
+        <section id="module" class="module-section">
+            <h2>Training Modules</h2>
+            <p>Destinations: Our Lady of Lourdes Grotto, Mt. Balagbag, Padre Pio. NPC question repository:</p>
+            <div id="scenarioList"><p>Loading...</p></div>
+        </section>
+    </main>
+    <script type="module" src="teacher.js"></script>
+</body>
+</html>
